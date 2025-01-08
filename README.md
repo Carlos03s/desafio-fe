@@ -1,59 +1,114 @@
-# AngularApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+# Formulário de Cadastro de Usuário
 
-## Development server
+Este projeto é um formulário de cadastro de usuário desenvolvido em Angular utilizando Reactive Forms para uma empresa fictícia chamada TechManage. Ele possui validações nos campos de entrada para garantir que os dados sejam preenchidos corretamente antes do envio.
 
-To start a local development server, run:
+## Funcionalidades
 
-```bash
-ng serve
-```
+- **Validação em tempo real**:
+  - Nome: Deve conter pelo menos 3 caracteres.
+  - E-mail: Deve ser um e-mail válido.
+  - Telefone: Deve ser um número de telefone válido.
+  - Data de nascimento: Deve corresponder a uma idade mínima de 18 anos.
+- **Seleção de tipo de usuário**: Administrador, Editor ou Visualizador.
+- **Mensagens de erro claras**: Exibidas dinamicamente quando os campos estão inválidos.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Estrutura do Formulário
 
-## Code scaffolding
+O formulário é composto pelos seguintes campos:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Nome Completo** (`nome`):
+   - Tipo: `text`
+   - Validação:
+     - Mínimo de 3 caracteres.
+   - Mensagem de erro: "Nome precisa ter no mínimo 3 caracteres."
 
-```bash
-ng generate component component-name
-```
+2. **E-mail** (`email`):
+   - Tipo: `email`
+   - Validação:
+     - Deve ser um e-mail válido.
+   - Mensagem de erro: "Formato de e-mail inválido."
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. **Telefone** (`telefone`):
+   - Tipo: `tel`
+   - Validação:
+     - Deve ser um número de telefone válido.
+   - Mensagem de erro: "Número de telefone inválido."
 
-```bash
-ng generate --help
-```
+4. **Data de Nascimento** (`data_nascimento`):
+   - Tipo: `date`
+   - Validação:
+     - Usuário deve ter pelo menos 18 anos.
+   - Mensagem de erro:
+     - "Idade mínima deve ser 18 anos."
+     - "A data de nascimento é obrigatória."
 
-## Building
+5. **Tipo de Usuário** (`tipo_usuario`):
+   - Tipo: `select`
+   - Opções:
+     - Administrador
+     - Editor
+     - Visualizador
 
-To build the project run:
+## Pré-requisitos
 
-```bash
-ng build
-```
+- Node.js (v16 ou superior)
+- Angular CLI (v15 ou superior)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Como Rodar o Projeto
 
-## Running unit tests
+1. Clone o repositório:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+   ```bash
+   git clone https://github.com/Carlos03s/desafio-fe.git
+   cd desafio-fe
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   ng serve
+   ```
+
+4. Acesse o aplicativo no navegador:
+
+   ```
+   http://localhost:4200
+   ```
+
+## Testes
+
+O projeto inclui testes unitários para validar os campos do formulário.
+
+### Executando os testes
+
+Para rodar os testes:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+### Testes implementados
 
-For end-to-end (e2e) testing, run:
+- Validação do campo `nome` para comprimento mínimo.
+- Validação de formato do campo `email`.
+- Validação do campo `telefone`.
+- Verificação da idade mínima no campo `data_nascimento`.
+- Verificação ao preencher os campos corretamento, o formulário deve se tornar válido.
 
-```bash
-ng e2e
-```
+## Captura de Tela
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+![image](https://github.com/user-attachments/assets/57c3ffff-8927-409e-86d7-f54f32e8951e)
+![image](https://github.com/user-attachments/assets/7db821a4-0db6-4d53-9165-3f4d02d4d3f4)
 
-## Additional Resources
+## Tecnologias Utilizadas
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular
+- Reactive Forms
+- Karma & Jasmine (para testes unitários)
